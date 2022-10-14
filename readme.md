@@ -1,5 +1,5 @@
 build -t => specify a name 
-
+docker image ls -q =>get only images id
 docker image ls                 => list of image
 docker image rm <name or id of image> =>remove image
 docker ps    =>list of container running
@@ -23,6 +23,8 @@ docker run -i -t ubuntu   => new container from ubuntu image and running it with
 docker image prune => remove dangling images (none name and none tag)
 docker container prune => remove all container stopped
 
+
+
 docker image tag <name or id of image> <name>:<tag>  => create tag for an image  
 docker login
 docker logout
@@ -38,3 +40,13 @@ docker volume inspect app-data
 docker cp <name or id of container>:<name of file ex:/app/log.txt> . => copy file from container to local file
 docker cp file.txt <container>:<file ex: /app> =>copy file from local to container
 docker run -d -p 5001:3000 -v $(pwd):/app react-app  => mapping between the local directory and container for the live changing 
+
+docker container rm -f $(docker container ls -aq) =>remove all containers
+docker image rm -f $(docker image ls -q) =>remove all images
+======================================
+docker-compose build => build image
+docker-compose up  => start container
+docker-compose up -d --build => build image and start container with detach
+docker-compose stop => stop container
+docker-compose logs
+docker-compose logs <id or name of container>
